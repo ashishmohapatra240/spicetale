@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { JSX, useRef, useMemo, useState, useCallback } from 'react'
-import { MeshTransmissionMaterial, useGLTF } from '@react-three/drei'
+import { useGLTF, useEnvironment } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useControls } from 'leva'
 import { GLTF } from 'three-stdlib'
@@ -37,14 +37,22 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const rippleTimeout = useRef<NodeJS.Timeout | null>(null)
   const prevShowLiquid = useRef(true)
 
-  // Material controls for the transmission material
-  const materialProps = useControls('Glass Material', {
-    thickness: { value: 0.2, min: 0, max: 3, step: 0.05 },
-    roughness: { value: 0, min: 0, max: 1, step: 0.1 },
-    transmission: { value: 1, min: 0, max: 1, step: 0.1 },
-    ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
-    chromaticAberration: { value: 0.02, min: 0, max: 1 },
-    backside: { value: true },
+  // Environment map for realistic reflections
+  const envMap = useEnvironment({ preset: 'warehouse' })
+
+  // Material controls for the plastic material
+  const materialProps = useControls('Plastic Material', {
+    color: { value: '#ffffff' },
+    metalness: { value: 0, min: 0, max: 1, step: 0.01 },
+    roughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
+    transmission: { value: 1.0, min: 0, max: 1, step: 0.01 },
+    ior: { value: 1.4, min: 1, max: 2.33, step: 0.01 },
+    reflectivity: { value: 0.1, min: 0, max: 1, step: 0.01 },
+    thickness: { value: 0.1, min: 0, max: 5, step: 0.1 },
+    envMapIntensity: { value: 0.5, min: 0, max: 3, step: 0.1 },
+    clearcoat: { value: 0.5, min: 0, max: 1, step: 0.01 },
+    clearcoatRoughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
+    opacity: { value: 0.1, min: 0, max: 1, step: 0.01, label: 'Body Opacity' },
   })
 
   // Rotation controls
@@ -60,10 +68,10 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   // Liquid controls
   const liquidControls = useControls('Liquid', {
     showLiquid: { value: true, label: 'Show Liquid' },
-    fillAmount: { value: 0.07, min: -1, max: 1, step: 0.01, label: 'Height' },
-    color: { value: '#c68642', label: 'Color' },
-    opacity: { value: 0.85, min: 0, max: 1, step: 0.01 },
-    rippleAmplitude: { value: 0.07, min: 0.01, max: 0.2, step: 0.01, label: 'Ripple Amplitude' }
+    fillAmount: { value: 0.6, min: -1, max: 1, step: 0.01, label: 'Height' },
+    color: { value: '#ff6b35', label: 'Color' },
+    opacity: { value: 0.95, min: 0, max: 1, step: 0.01 },
+    rippleAmplitude: { value: 0.03, min: 0.01, max: 0.2, step: 0.01, label: 'Ripple Amplitude' }
   })
 
   // Liquid uniforms
@@ -201,15 +209,34 @@ export function Model(props: JSX.IntrinsicElements['group']) {
           receiveShadow
           geometry={nodes.Body.geometry}
           onClick={handleBodyClick}
+          renderOrder={0}
         >
-          <MeshTransmissionMaterial {...materialProps} />
+          <meshPhysicalMaterial
+            color={materialProps.color}
+            metalness={materialProps.metalness}
+            roughness={materialProps.roughness}
+            transmission={materialProps.transmission}
+            ior={materialProps.ior}
+            reflectivity={materialProps.reflectivity}
+            thickness={materialProps.thickness}
+            envMap={envMap}
+            envMapIntensity={materialProps.envMapIntensity}
+            clearcoat={materialProps.clearcoat}
+            clearcoatRoughness={materialProps.clearcoatRoughness}
+            transparent={true}
+            opacity={materialProps.opacity}
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
         </mesh>
         {liquidControls.showLiquid && (
           <mesh
             ref={liquidBody}
             name="Liquid"
             geometry={nodes.Body.geometry}
-            scale={[0.98, 0.98, 0.98]}
+            scale={[0.95, 0.95, 0.95]}
+            renderOrder={2}
+            frustumCulled={false}
           >
             {/* @ts-expect-error Custom material component */}
             <liquidRefractionMaterial {...uniforms} />
