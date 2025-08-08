@@ -38,7 +38,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const prevShowLiquid = useRef(true)
 
   // Environment map for realistic reflections
-  const envMap = useEnvironment({ preset: 'warehouse' })
+  const envMap = useEnvironment({ preset: 'sunset' })
 
   // Material controls for the plastic material
   const materialProps = useControls('Plastic Material', {
@@ -52,7 +52,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     envMapIntensity: { value: 0.5, min: 0, max: 3, step: 0.1 },
     clearcoat: { value: 0.5, min: 0, max: 1, step: 0.01 },
     clearcoatRoughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
-    opacity: { value: 0.1, min: 0, max: 1, step: 0.01, label: 'Body Opacity' },
+    opacity: { value: 1, min: 0, max: 1, step: 0.01, label: 'Body Opacity' },
   })
 
   // Rotation controls
@@ -68,8 +68,8 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   // Liquid controls
   const liquidControls = useControls('Liquid', {
     showLiquid: { value: true, label: 'Show Liquid' },
-    fillAmount: { value: 0.6, min: -1, max: 1, step: 0.01, label: 'Height' },
-    color: { value: '#ff6b35', label: 'Color' },
+    fillAmount: { value: 0.1, min: -1, max: 1, step: 0.01, label: 'Height' },
+    color: { value: '#7A3E11', label: 'Color' },
     opacity: { value: 0.95, min: 0, max: 1, step: 0.01 },
     rippleAmplitude: { value: 0.03, min: 0.01, max: 0.2, step: 0.01, label: 'Ripple Amplitude' }
   })
