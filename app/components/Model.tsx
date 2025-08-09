@@ -38,7 +38,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const prevShowLiquid = useRef(true)
 
   // Environment map for realistic reflections
-  const envMap = useEnvironment({ preset: 'sunset' })
+  const envMap = useEnvironment({ preset: 'city' })
 
   // Material controls for the plastic material
   const materialProps = useControls('Plastic Material', {
