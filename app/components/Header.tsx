@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <header className="w-full max-w-7xl mx-auto">
-      <div className="container flex items-center justify-between py-4 px-4">
+    <header className="w-full bg-[#FEF5E4]">
+      <div className="container flex items-center justify-between py-4 px-4 max-w-7xl mx-auto">
         <Link href="/" className="shrink-0 inline-flex items-center gap-2">
           <Image src="/images/logo.png" alt="SpiceTale" width={56} height={56} priority />
         </Link>
@@ -17,10 +17,10 @@ export default function Header() {
           <a href="#location" className="hover:opacity-80">Location</a>
         </nav>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex font-sans">
           <a
             href="#enquire"
-            className="rounded-full bg-[var(--brand-brown)] text-white px-6 py-2 text-sm font-semibold shadow-sm hover:opacity-95"
+            className="rounded-full bg-[#3D1706] text-white px-6 py-2 text-sm font-semibold shadow-sm hover:opacity-95"
           >
             Enquire
           </a>
