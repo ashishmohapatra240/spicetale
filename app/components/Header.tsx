@@ -11,7 +11,7 @@ export default function Header() {
           <Image src="/images/logo.png" alt="SpiceTale" width={56} height={56} priority />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium text-neutral-800 font-sans">
+        <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium text-neutral-800 font-sans tracking-tight">
           <a href="#products" className="hover:opacity-80">Products</a>
           <a href="#about" className="hover:opacity-80">About us</a>
           <a href="#location" className="hover:opacity-80">Location</a>
