@@ -8,47 +8,47 @@ import { Leva } from 'leva'
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden bg-[#FEF5E4] flex items-center">
-            <div className="relative mx-auto w-full max-w-7xl h-screen px-4 md:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-[#FEF5E4] min-h-[100dvh]">
+            <div className="relative mx-auto w-full max-w-7xl min-h-[100dvh] px-4 md:px-6 lg:px-8 flex flex-col items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 -top-60">
+                    <h1 className="text-[100px] md:text-[140px] lg:text-[180px] leading-[1] tracking-tight uppercase select-none text-[#3D1706] text-center whitespace-nowrap font-display">
+                        JEERA<br />
+                        MASALA
+                    </h1>
+                </div>
                 {/* Container for the main content */}
-                <div className="relative flex flex-col items-center justify-center -top-10">
-                    {/* Big heading in background */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="text-[100px] md:text-[140px] lg:text-[180px] leading-[1] tracking-tight uppercase select-none text-[#3D1706] text-center whitespace-nowrap font-display">
-                            JEERA<br />
-                            MASALA
-                        </h1>
-                    </div>
+                <div className="relative z-10 flex flex-col items-center -top-12">
 
                     {/* Bottle overlay centered */}
                     <div className="pointer-events-none relative z-10 flex justify-center items-center">
-                        <div className="w-[280px] md:w-[35vw] lg:w-[420px] aspect-[2/3] transform transition-transform duration-700 ease-out">
+                        <div className="w-[280px] md:w-[35vw] lg:w-[420px] aspect-[2/3] max-h-[70dvh] transform transition-transform duration-700 ease-out">
                             <Canvas className="w-full h-full block" camera={{ position: [0.18, 0.18, 1.5], fov: 50 }}>
                                 <ambientLight intensity={0.7} />
                                 <directionalLight position={[2, 3, 5]} intensity={0.8} />
-                                <Model scale={3.5} />
+                                <Model scale={4} />
                                 <Environment preset="city" />
                                 <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
                             </Canvas>
                         </div>
                     </div>
 
-                    {/* Bottom texts */}
-                    <div className="absolute bottom-4 md:bottom-6 lg:bottom-8 left-4 right-4 md:left-6 md:right-6 lg:left-8 lg:right-8 mt-20">
-                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8">
-                            <div className="max-w-[280px] md:max-w-sm">
-                                <p className="text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase text-[#3D1706] font-bold font-display">
-                                    Refreshing the world<br />
-                                    and making a difference
-                                </p>
-                            </div>
 
-                            <div className="max-w-[320px] md:max-w-md lg:max-w-lg">
-                                <p className="text-[12px] md:text-[2.5vw] lg:text-[14px] leading-[1.4] text-[#3D1706] tracking-tight">
-                                    Founded in 2024, SpiceTale has been at the forefront of sustainable beverages. We believe in creating
-                                    timeless drinks that not only look good but also feel good for the planet.
-                                </p>
-                            </div>
+                </div>
+                {/* Bottom texts (in centered flow) */}
+                <div className="w-full px-1">
+                    <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-8">
+                        <div className="max-w-[280px] md:max-w-sm">
+                            <p className="text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase text-[#3D1706] font-bold font-display">
+                                Refreshing the world<br />
+                                and making a difference
+                            </p>
+                        </div>
+
+                        <div className="max-w-[320px] md:max-w-md">
+                            <p className="text-[12px] md:text-[2.5vw] lg:text-[14px] leading-[1.4] text-[#3D1706] tracking-tight">
+                                Founded in 2024, SpiceTale has been at the forefront of sustainable beverages. We believe in creating
+                                timeless drinks that not only look good but also feel good for the planet.
+                            </p>
                         </div>
                     </div>
                 </div>
