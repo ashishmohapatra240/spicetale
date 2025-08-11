@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function AboutUs() {
   return (
     <div className="bg-[#FEF5E4] ">
-      <div className="w-full max-w-7xl mx-auto px-4 py-8 h-[100dvh]">
+      <div className="w-full max-w-7xl mx-auto px-4 py-8 min-h-[100dvh] flex items-center">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left Image */}
           <div className="flex justify-center md:justify-start">

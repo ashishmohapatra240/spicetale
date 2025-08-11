@@ -20,7 +20,7 @@ const antonSC = Anton_SC({
 });
 
 export const metadata: Metadata = {
-  title: "Spicetale Beverages",
+  title: "Spicetale Beverages | Work In Progress",
   description: "Spicetale is work in progress",
 };
 

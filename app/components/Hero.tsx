@@ -11,7 +11,7 @@ export default function Hero() {
         <section className="relative overflow-hidden bg-[#FEF5E4] min-h-[100dvh]">
             <div className="relative mx-auto w-full max-w-7xl min-h-[100dvh] px-4 md:px-6 lg:px-8 flex flex-col items-center justify-center">
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 -top-40">
-                    <h1 className="text-[100px] md:text-[140px] lg:text-[240px] leading-[1] tracking-tight uppercase select-none text-center whitespace-nowrap font-display bg-gradient-to-b from-[#3D1706] to-[#A33D11] bg-clip-text text-transparent">
+                    <h1 className="text-[100px] md:text-[140px] lg:text-[240px] leading-[1] tracking-tight uppercase select-none text-center whitespace-nowrap font-display bg-gradient-to-b from-[#3D1706] to-[#853B1B] bg-clip-text text-transparent">
                         JEERA<br />
                         MASALA
                     </h1>
@@ -25,9 +25,9 @@ export default function Hero() {
                             <Canvas className="w-full h-full block" camera={{ position: [0.18, 0.18, 1.9], fov: 50 }}>
                                 <ambientLight intensity={0.7} />
                                 <directionalLight position={[2, 3, 5]} intensity={0.8} />
-                                <Model scale={4.3} position={[0, -0.1, 0]} />
+                                <Model scale={5} position={[0, -0.1, 0]} />
                                 <Environment preset="city" />
-                                <OrbitControls enablePan={false} enableZoom={false} enableRotate={true} />
+                                <OrbitControls enablePan={false} enableZoom={false} enableRotate={false} />
                             </Canvas>
                         </div>
                     </div>

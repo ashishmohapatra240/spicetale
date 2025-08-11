@@ -32,7 +32,7 @@ export default function Header() {
             About us
           </Link>
           <Link
-            href="/location"
+            href="/"
             aria-current={isLocationPage ? 'page' : undefined}
             className={`transition-colors hover:opacity-80 ${isLocationPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
           >
