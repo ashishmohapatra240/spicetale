@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 }
 
 export function Model(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/models/spicetale2.glb') as unknown as GLTFResult
+  const { nodes, materials } = useGLTF('/models/spicetale3.glb') as unknown as GLTFResult
   const { size } = useThree()
   const containerRef = useRef<THREE.Group>(null)
   const liquidBody = useRef<THREE.Mesh>(null)
@@ -43,7 +43,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   // Material controls for the plastic material
   const materialProps = useControls('Plastic Material', {
     color: { value: '#ffffff' },
-    metalness: { value: 0, min: 0, max: 1, step: 0.01 },
+    metalness: { value: 0.1, min: 0, max: 1, step: 0.01 },
     roughness: { value: 0.1, min: 0, max: 1, step: 0.01 },
     transmission: { value: 1.0, min: 0, max: 1, step: 0.01 },
     ior: { value: 1.4, min: 1, max: 2.33, step: 0.01 },
@@ -70,7 +70,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     showLiquid: { value: true, label: 'Show Liquid' },
     fillAmount: { value: 0.1, min: -1, max: 1, step: 0.01, label: 'Height' },
     color: { value: '#7A3E11', label: 'Color' },
-    opacity: { value: 0.95, min: 0, max: 1, step: 0.01 },
+    opacity: { value: 1, min: 0, max: 1, step: 0.01 },
     rippleAmplitude: { value: 0.03, min: 0.01, max: 0.2, step: 0.01, label: 'Ripple Amplitude' }
   })
 
@@ -234,7 +234,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
             ref={liquidBody}
             name="Liquid"
             geometry={nodes.Body.geometry}
-            scale={[0.95, 0.95, 0.95]}
+            scale={[0.95, 1, 0.95]}
             renderOrder={2}
             frustumCulled={false}
           >
@@ -249,7 +249,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
           geometry={nodes.Label.geometry}
           material={materials.LabelMaterial}
           position={[0.005, -0.014, 0]}
-          scale={[0.043, 0.04, 0.043]}
+          scale={[0.0406, 0.04, 0.043]}
         />
         <mesh
           name="Cap"
@@ -263,4 +263,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   )
 }
 
-useGLTF.preload('/models/spicetale2.glb')
+useGLTF.preload('/models/spicetale3.glb')
