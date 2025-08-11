@@ -2,19 +2,42 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
+  const pathname = usePathname()
+  const isProductsPage = pathname?.startsWith('/products')
+  const isAboutPage = pathname?.startsWith('/about-us')
+  const isLocationPage = pathname?.startsWith('/location')
   return (
-    <header className="w-full bg-[#FEF5E4]">
+    <header className={`w-full sticky top-0 z-50 border-b border-neutral-200 ${isProductsPage ? 'bg-white' : 'bg-[#FEF5E4]'}`}>
       <div className="container flex items-center justify-between py-4 px-4 max-w-7xl mx-auto">
         <Link href="/" className="shrink-0 inline-flex items-center gap-2">
           <Image src="/images/logo.png" alt="SpiceTale" width={56} height={56} priority />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10 text-[15px] font-medium text-neutral-800 font-sans">
-          <a href="#products" className="hover:opacity-80">Products</a>
-          <a href="#about" className="hover:opacity-80">About us</a>
-          <a href="#location" className="hover:opacity-80">Location</a>
+        <nav className="hidden md:flex items-center gap-10 text-[16px] font-sans tracking-tight">
+          <Link
+            href="/products"
+            aria-current={isProductsPage ? 'page' : undefined}
+            className={`transition-colors hover:opacity-80 ${isProductsPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+          >
+            Products
+          </Link>
+          <Link
+            href="/about-us"
+            aria-current={isAboutPage ? 'page' : undefined}
+            className={`transition-colors hover:opacity-80 ${isAboutPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+          >
+            About us
+          </Link>
+          <Link
+            href="/location"
+            aria-current={isLocationPage ? 'page' : undefined}
+            className={`transition-colors hover:opacity-80 ${isLocationPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+          >
+            Location
+          </Link>
         </nav>
 
         <div className="hidden md:flex font-sans">
