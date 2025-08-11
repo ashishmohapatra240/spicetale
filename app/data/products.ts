@@ -37,7 +37,7 @@ export const products: Product[] = [
         priceInr: 20,
         sizesMl: [500, 300],
         backgroundColor: '#FF7B2E',
-        imgSrc: '/images/products/orange.png',
+        imgSrc: '/images/products/orange-drink.png',
         backgroundImageSrc: '/images/products/orange.png',
     },
     {
