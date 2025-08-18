@@ -10,10 +10,8 @@ export default function PunchSection() {
         <div className="relative grid grid-cols-1 md:grid-cols-5 items-end gap-8 md:gap-12">
           <div className="md:col-span-3 max-w-2xl">
             <h2 className="text-[32px] md:text-[6vw] lg:text-[64px] leading-[1.05] uppercase text-[#3D1706] tracking-tight font-display">
-              Sip the Tradition,
-              <br />
-              Taste the{' '}
-              <span className="relative inline-block align-baseline">
+              Refreshing India,<br /> One Sip at a Time
+              {/* <span className="relative inline-block align-baseline">
                 Punch
                 <Image
                   src="/images/splash.png"
@@ -22,7 +20,7 @@ export default function PunchSection() {
                   height={300}
                   className="absolute -z-10 left-1/2 -translate-x-1/2 top-[58%] -translate-y-1/2 select-none pointer-events-none"
                 />
-              </span>
+              </span> */}
             </h2>
             <p className="mt-4 max-w-xl text-md text-[#3D1706]">
               A line up of spices and recipes to quench your thirst.
@@ -92,9 +90,8 @@ export default function PunchSection() {
                     {p.sizesMl.map((ml, idx) => (
                       <div
                         key={ml}
-                        className={`flex-1 px-4 py-0.5 rounded-[48px] flex justify-center items-center ${
-                          idx === 0 ? 'bg-zinc-900 text-white' : 'text-zinc-900'
-                        }`}
+                        className={`flex-1 px-4 py-0.5 rounded-[48px] flex justify-center items-center ${idx === 0 ? 'bg-zinc-900 text-white' : 'text-zinc-900'
+                          }`}
                       >
                         <div className="text-base leading-normal">{ml} ml</div>
                       </div>
