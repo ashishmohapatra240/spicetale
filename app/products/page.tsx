@@ -1,6 +1,7 @@
 
 import Image from 'next/image'
 import { products } from '../data/products'
+import ConnectSection from '../components/ConnectSection'
 
 
 export default function Products() {
@@ -36,31 +37,39 @@ export default function Products() {
                         <div className="flex flex-col w-full gap-2">
                             <div className="flex items-start w-full">
                                 <div className="flex-1">
-                                    <h3 className="font-display font-normal text-3xl md:text-7xl leading-[1] uppercase text-[#16181A] mb-2 tracking-tight">
+                                    <h3 className="font-display font-normal text-3xl md:text-5xl leading-[1] uppercase text-[#16181A] mb-2 tracking-tight">
                                         {product.name}
                                     </h3>
                                     <p className="font-sans font-normal text-[16px] leading-relaxed text-[#16181A] tracking-tight">{product.subtitle}</p>
                                 </div>
-                                <div className="inline-flex items-center gap-1 h-9 sm:h-10 px-3 sm:px-4 bg-[#FFC700] rounded-full text-[#16181A] font-sans text-xl sm:text-2xl font-medium shrink-0">
+
+                            </div>
+                            <div className='flex items-center gap-2'>
+                                <div className="inline-flex items-center rounded-full border border-[#16181A] p-1 w-fit">
+                                    <div className="px-4 py-1 rounded-full bg-[#16181A] text-white font-sans text-[16px] font-medium">
+                                        {product.sizesMl[0]} ml
+                                    </div>
+                                    <div className="px-4 py-1 text-[#16181A] font-sans text-[16px] font-medium">
+                                        {product.sizesMl[1]} ml
+                                    </div>
+
+                                </div>
+                                <div 
+                                    className="inline-flex items-center gap-1 h-9 sm:h-10 px-3 sm:px-4 rounded-full text-[#16181A] font-sans text-xl sm:text-2xl font-medium shrink-0"
+                                    style={{ backgroundColor: product.backgroundColor }}
+                                >
                                     <span>₹</span>
                                     <span>{product.priceInr}</span>
                                 </div>
                             </div>
-                            <div className="inline-flex items-center rounded-full border border-[#16181A] p-1 w-fit">
-                                <div className="px-4 py-1 rounded-full bg-[#16181A] text-white font-sans text-[16px] font-medium">
-                                    {product.sizesMl[0]} ml
-                                </div>
-                                <div className="px-4 py-1 text-[#16181A] font-sans text-[16px] font-medium">
-                                    {product.sizesMl[1]} ml
-                                </div>
-                            </div>
                             <p className="font-sans font-normal text-[16px] leading-relaxed text-[#16181A] tracking-tight">
-                                At SpiceTale, every sip carries a memory. Our recipes are treasures passed down from our grandparents — drinks they crafted with love, care, and a pinch of magic.
+                                {product.description}
                             </p>
                         </div>
                     </div>
                 </div>
             ))}
+            <ConnectSection/>
         </div>
     )
 }
