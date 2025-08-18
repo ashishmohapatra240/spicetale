@@ -64,7 +64,7 @@ export default function Hero3D() {
                                     duration: 0.8,
                                     ease: [0.25, 0.1, 0.25, 1] // Custom cubic-bezier for smooth animation
                                 }}
-                                className="w-[600px] flex-shrink-0"
+                                className="w-[400px] md:w-[600px] flex-shrink-0"
                             >
                                 <Image
                                     src={heroImages[currentImageIndex]}
