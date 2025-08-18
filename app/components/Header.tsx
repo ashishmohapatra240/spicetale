@@ -3,12 +3,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 export default function Header() {
   const pathname = usePathname()
   const isProductsPage = pathname?.startsWith('/products')
   const isAboutPage = pathname?.startsWith('/about-us')
   const isLocationPage = pathname?.startsWith('/location')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Close mobile menu when clicking outside or on escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
+    }
+  }, [isMobileMenuOpen])
+
   return (
     <header className={`w-full sticky top-0 z-50 border-b border-neutral-200 bg-white`}>
       <div className="container flex items-center justify-between py-4 px-4 max-w-7xl mx-auto">
@@ -49,11 +66,54 @@ export default function Header() {
           </a>
         </div>
 
-        <button aria-label="Menu" className="md:hidden rounded-full p-2">
-          <span className="block h-1 w-6 bg-neutral-900 mb-1"></span>
-          <span className="block h-1 w-6 bg-neutral-900"></span>
+        <button
+          aria-label="Menu"
+          className="md:hidden rounded-full p-2 transition-all duration-200"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span className={`block h-0.5 w-6 bg-neutral-900 mb-1.5 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`block h-0.5 w-6 bg-neutral-900 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-0.5' : ''}`}></span>
         </button>
       </div>
+
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-neutral-200 bg-white">
+          <nav className="container max-w-7xl mx-auto px-4 py-4 space-y-4">
+            <Link
+              href="/products"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isProductsPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+            >
+              Products
+            </Link>
+            <hr className='border-neutral-200' />
+            <Link
+              href="/about-us"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isAboutPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+            >
+              About us
+            </Link>
+            <hr className='border-neutral-200' />
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isLocationPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+            >
+              Location
+            </Link>
+            <div>
+              <Link
+                href="#enquire"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="inline-block rounded-full bg-[#3D1706] text-white px-6 py-3 text-base font-semibold shadow-sm hover:opacity-95 transition-opacity w-full font-sans text-center"
+              >
+                Enquire
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
