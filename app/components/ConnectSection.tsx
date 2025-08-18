@@ -25,11 +25,11 @@ export default function ConnectSection() {
                     {/* Left copy */}
                     <div className="text-white">
                         <h2 className="font-display uppercase leading-[1.1] text-[28px] md:text-[48px] tracking-tight">
-                        Have an idea, feedback,<br/> or partnership proposal?
+                            Have an idea, feedback,<br /> or partnership proposal?
                         </h2>
                         <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed">
-                        We’d love to hear from you! Drop us a message — let’s make something refreshingly unforgettable
-                        together.
+                            We’d love to hear from you! Drop us a message — let’s make something refreshingly unforgettable
+                            together.
                         </p>
                     </div>
 
@@ -54,28 +54,38 @@ export default function ConnectSection() {
                             ))}
                         </div>
 
-                        <p className="text-white/80 text-sm md:text-lg mt-3">Need a pack of spicetale? </p>
-                        <button className="mt-2 w-full rounded-full bg-[#D4E638] text-[#1A1F0A] font-semibold py-3 md:py-3.5 hover:opacity-95 transition-opacity">
-                            Let’s Connect
-                        </button>
+                        {role === 'admirer' ? (
+                            <>
+                                <p className="text-white text-sm md:text-lg my-10 text-center">Need a pack of spicetale.<br />
+                                    Let&apos;s Chat on Whatsapp... </p>
+                                <a
+                                    href="https://wa.me/917045455899"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-2 w-full rounded-full bg-[#D4E638] text-[#1A1F0A] font-semibold py-3 md:py-3.5 hover:opacity-95 transition-opacity block text-center"
+                                >
+                                    Let&apos;s Connect
+                                </a>
+                            </>
+                        ) : (
+                            <form className="mt-4 space-y-3" onSubmit={(e) => e.preventDefault()}>
+                                <Input placeholder="Full Name" />
+                                <Input placeholder="Address" />
+                                <Input placeholder="Phone Number" type="tel" />
 
-                        {/* <form className="mt-4 space-y-3" onSubmit={(e) => e.preventDefault()}>
-                            <Input placeholder="Full Name" />
-                            <Input placeholder="Address" />
-                            <Input placeholder="Phone Number" type="tel" />
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <Input placeholder="City" />
+                                    <Input placeholder="Pincode" />
+                                </div>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <Input placeholder="City" />
-                                <Input placeholder="Pincode" />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="mt-2 w-full rounded-full bg-[#D4E638] text-[#1A1F0A] font-semibold py-3 md:py-3.5 hover:opacity-95 transition-opacity"
-                            >
-                                Let’s Connect
-                            </button>
-                        </form> */}
+                                <button
+                                    type="submit"
+                                    className="mt-2 w-full rounded-full bg-[#D4E638] text-[#1A1F0A] font-semibold py-3 md:py-3.5 hover:opacity-95 transition-opacity"
+                                >
+                                    Let&apos;s Connect
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>
@@ -83,14 +93,14 @@ export default function ConnectSection() {
     )
 }
 
-// function Input({ placeholder, type = 'text' }: { placeholder: string; type?: string }) {
-//     return (
-//         <input
-//             type={type}
-//             placeholder={placeholder}
-//             className="w-full rounded-md bg-white text-neutral-900 placeholder-neutral-500 px-4 py-3 md:py-3.5 outline-none focus:ring-2 focus:ring-[#D4E638]"
-//         />
-//     )
-// }
+function Input({ placeholder, type = 'text' }: { placeholder: string; type?: string }) {
+    return (
+        <input
+            type={type}
+            placeholder={placeholder}
+            className="w-full rounded-md bg-white text-neutral-900 placeholder-neutral-500 px-4 py-3 md:py-3.5 outline-none focus:ring-2 focus:ring-[#D4E638]"
+        />
+    )
+}
 
 
