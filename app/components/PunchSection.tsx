@@ -58,7 +58,7 @@ export default function PunchSection() {
                   className="absolute inset-0 pointer-events-none select-none flex items-center justify-center"
                   aria-hidden
                 >
-                  <div className="w-24 h-96 relative">
+                  <div className="w-36 md:w-28 h-96 relative">
                     <Image
                       src="/images/products/masala-jeera.png"
                       alt="Masala Jeera"
