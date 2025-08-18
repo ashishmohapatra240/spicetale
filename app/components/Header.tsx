@@ -10,7 +10,7 @@ export default function Header() {
   const isAboutPage = pathname?.startsWith('/about-us')
   const isLocationPage = pathname?.startsWith('/location')
   return (
-    <header className={`w-full sticky top-0 z-50 border-b border-neutral-200 ${isProductsPage ? 'bg-white' : 'bg-[#FEF5E4]'}`}>
+    <header className={`w-full sticky top-0 z-50 border-b border-neutral-200 bg-white`}>
       <div className="container flex items-center justify-between py-4 px-4 max-w-7xl mx-auto">
         <Link href="/" className="shrink-0 inline-flex items-center gap-2">
           <Image src="/images/logo.png" alt="SpiceTale" width={56} height={56} priority />
