@@ -4,10 +4,10 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ConnectSection() {
-    const [role, setRole] = useState<'admirer' | 'vendor' | 'investor'>('admirer')
+    const [role, setRole] = useState<'admirer' | 'distributer'>('admirer')
 
     return (
-        <section id="enquire" className="relative overflow-hidden -top-6 font-sans tracking-tight">
+        <section id="enquire" className="relative overflow-hidden -top-6 font-sans tracking-tight min-h-[30dvh]">
             {/* Background image */}
             <div className="absolute inset-0">
                 <Image
@@ -24,14 +24,12 @@ export default function ConnectSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
                     {/* Left copy */}
                     <div className="text-white">
-                        <h2 className="font-display uppercase leading-[1] text-[44px] md:text-[64px] lg:text-[72px] tracking-tight">
-                            Let’s Stay
-                            <br />
-                            Connected!
+                        <h2 className="font-display uppercase leading-[1.1] text-[28px] md:text-[48px] tracking-tight">
+                        Have an idea, feedback,<br/> or partnership proposal?
                         </h2>
                         <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed">
-                            Whether you want a bottle, a partnership, or to invest — we’d love to hear from you!
-                            Got feedback or just want to say hi? Drop us a message!
+                        We’d love to hear from you! Drop us a message — let’s make something refreshingly unforgettable
+                        together.
                         </p>
                     </div>
 
@@ -40,8 +38,7 @@ export default function ConnectSection() {
                         <div className="inline-flex rounded-full bg-white/20 p-1 backdrop-blur supports-[backdrop-filter]:bg-white/15 w-full">
                             {([
                                 { key: 'admirer', label: 'Just a admirer' },
-                                { key: 'vendor', label: 'Vendor' },
-                                { key: 'investor', label: 'Investor' },
+                                { key: 'distributer', label: 'Distributer' },
                             ] as const).map((opt) => (
                                 <button
                                     key={opt.key}
@@ -57,9 +54,12 @@ export default function ConnectSection() {
                             ))}
                         </div>
 
-                        <p className="text-white/80 text-sm mt-3">Need a pack of spicetale.</p>
+                        <p className="text-white/80 text-sm md:text-lg mt-3">Need a pack of spicetale? </p>
+                        <button className="mt-2 w-full rounded-full bg-[#D4E638] text-[#1A1F0A] font-semibold py-3 md:py-3.5 hover:opacity-95 transition-opacity">
+                            Let’s Connect
+                        </button>
 
-                        <form className="mt-4 space-y-3" onSubmit={(e) => e.preventDefault()}>
+                        {/* <form className="mt-4 space-y-3" onSubmit={(e) => e.preventDefault()}>
                             <Input placeholder="Full Name" />
                             <Input placeholder="Address" />
                             <Input placeholder="Phone Number" type="tel" />
@@ -75,7 +75,7 @@ export default function ConnectSection() {
                             >
                                 Let’s Connect
                             </button>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
             </div>
@@ -83,14 +83,14 @@ export default function ConnectSection() {
     )
 }
 
-function Input({ placeholder, type = 'text' }: { placeholder: string; type?: string }) {
-    return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            className="w-full rounded-md bg-white text-neutral-900 placeholder-neutral-500 px-4 py-3 md:py-3.5 outline-none focus:ring-2 focus:ring-[#D4E638]"
-        />
-    )
-}
+// function Input({ placeholder, type = 'text' }: { placeholder: string; type?: string }) {
+//     return (
+//         <input
+//             type={type}
+//             placeholder={placeholder}
+//             className="w-full rounded-md bg-white text-neutral-900 placeholder-neutral-500 px-4 py-3 md:py-3.5 outline-none focus:ring-2 focus:ring-[#D4E638]"
+//         />
+//     )
+// }
 
 
