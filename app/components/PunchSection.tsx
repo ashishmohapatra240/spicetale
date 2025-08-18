@@ -1,9 +1,23 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { products } from '../data/products'
 
 export default function PunchSection() {
+  const [selectedSizes, setSelectedSizes] = useState<{ [key: string]: number }>(
+    products.reduce((acc, product) => ({
+      ...acc,
+      [product.id]: product.sizesMl[0] // Default to first size
+    }), {})
+  )
+
+  const handleSizeChange = (productId: string, size: number) => {
+    setSelectedSizes(prev => ({
+      ...prev,
+      [productId]: size
+    }))
+  }
   return (
     <section id="products" className="relative font-sans tracking-tight">
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 py-16 md:py-20">
@@ -59,12 +73,7 @@ export default function PunchSection() {
                   aria-hidden
                 >
                   <div className="w-36 md:w-28 h-96 relative">
-                    <Image
-                      src="/images/products/masala-jeera.png"
-                      alt="Masala Jeera"
-                      fill
-                      className="object-contain"
-                    />
+                    <Image src={p.imgSrc} alt={p.name} fill className="object-contain" />
                   </div>
                 </div>
               </div>
@@ -80,21 +89,24 @@ export default function PunchSection() {
                     style={{ backgroundColor: p.backgroundColor }}
                   >
                     <div className="text-white text-2xl leading-9">₹</div>
-                    <div className="text-white text-2xl leading-9">{p.priceInr}</div>
+                    <div className="text-white text-2xl leading-9">{p.pricing[selectedSizes[p.id]]}</div>
                   </div>
                 </div>
 
                 {/* Size selector */}
                 {p.sizesMl?.length > 0 && (
                   <div className="self-stretch p-1 bg-white rounded-[48px] border border-zinc-900 inline-flex justify-center items-center gap-2">
-                    {p.sizesMl.map((ml, idx) => (
-                      <div
+                    {p.sizesMl.map((ml) => (
+                      <button
                         key={ml}
-                        className={`flex-1 px-4 py-0.5 rounded-[48px] flex justify-center items-center ${idx === 0 ? 'bg-zinc-900 text-white' : 'text-zinc-900'
+                        onClick={() => handleSizeChange(p.id, ml)}
+                        className={`flex-1 px-4 py-0.5 rounded-[48px] flex justify-center items-center transition-colors ${selectedSizes[p.id] === ml
+                            ? 'bg-zinc-900 text-white'
+                            : 'text-zinc-900 hover:bg-gray-100'
                           }`}
                       >
                         <div className="text-base leading-normal">{ml} ml</div>
-                      </div>
+                      </button>
                     ))}
                   </div>
                 )}

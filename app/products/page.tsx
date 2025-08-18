@@ -1,10 +1,26 @@
 
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { products } from '../data/products'
 import ConnectSection from '../components/ConnectSection'
 
 
 export default function Products() {
+    const [selectedSizes, setSelectedSizes] = useState<{ [key: string]: number }>(
+        products.reduce((acc, product) => ({
+            ...acc,
+            [product.id]: product.sizesMl[0] // Default to first size
+        }), {})
+    )
+
+    const handleSizeChange = (productId: string, size: number) => {
+        setSelectedSizes(prev => ({
+            ...prev,
+            [productId]: size
+        }))
+    }
     return (
         <div>
             {products.map((product) => (
@@ -46,20 +62,26 @@ export default function Products() {
                             </div>
                             <div className='flex items-center gap-2'>
                                 <div className="inline-flex items-center rounded-full border border-[#16181A] p-1 w-fit">
-                                    <div className="px-4 py-1 rounded-full bg-[#16181A] text-white font-sans text-[16px] font-medium">
-                                        {product.sizesMl[0]} ml
-                                    </div>
-                                    <div className="px-4 py-1 text-[#16181A] font-sans text-[16px] font-medium">
-                                        {product.sizesMl[1]} ml
-                                    </div>
-
+                                    {product.sizesMl.map((size) => (
+                                        <button
+                                            key={size}
+                                            onClick={() => handleSizeChange(product.id, size)}
+                                            className={`px-4 py-1 rounded-full font-sans text-[16px] font-medium transition-colors ${
+                                                selectedSizes[product.id] === size
+                                                    ? 'bg-[#16181A] text-white'
+                                                    : 'text-[#16181A] hover:bg-gray-100'
+                                            }`}
+                                        >
+                                            {size} ml
+                                        </button>
+                                    ))}
                                 </div>
                                 <div
                                     className="inline-flex items-center gap-1 h-9 sm:h-10 px-3 sm:px-4 rounded-full text-white font-sans text-xl sm:text-2xl font-medium shrink-0"
                                     style={{ backgroundColor: product.backgroundColor }}
                                 >
                                     <span>₹</span>
-                                    <span>{product.priceInr}</span>
+                                    <span>{product.pricing[selectedSizes[product.id]]}</span>
                                 </div>
                             </div>
                             <p className="font-sans font-normal text-[16px] leading-relaxed text-[#16181A] tracking-tight">
