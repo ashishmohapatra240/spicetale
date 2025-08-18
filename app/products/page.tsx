@@ -54,8 +54,8 @@ export default function Products() {
                                     </div>
 
                                 </div>
-                                <div 
-                                    className="inline-flex items-center gap-1 h-9 sm:h-10 px-3 sm:px-4 rounded-full text-[#16181A] font-sans text-xl sm:text-2xl font-medium shrink-0"
+                                <div
+                                    className="inline-flex items-center gap-1 h-9 sm:h-10 px-3 sm:px-4 rounded-full text-white font-sans text-xl sm:text-2xl font-medium shrink-0"
                                     style={{ backgroundColor: product.backgroundColor }}
                                 >
                                     <span>₹</span>
@@ -69,7 +69,9 @@ export default function Products() {
                     </div>
                 </div>
             ))}
-            <ConnectSection/>
+            <div className='bg-white pt-20'>
+                <ConnectSection />
+            </div>
         </div>
     )
 }
