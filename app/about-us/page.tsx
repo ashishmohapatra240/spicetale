@@ -101,7 +101,9 @@ export default function AboutUs() {
         <p className="font-sans font-medium text-sm sm:text-base md:text-xl text-slate-900 z-10 tracking-tight">in every Sip</p>
 
       </div> */}
-      <ConnectSection/>
+      <div className='bg-white pt-20'>
+        <ConnectSection />
+      </div>
     </div>
 
   )
