@@ -24,7 +24,7 @@ export default function AboutUs() {
           {/* Right Text */}
           <div className="w-full max-w-xl text-left">
             <h1 className="font-display font-normal text-5xl md:text-6xl leading-[1] uppercase text-[#3D1706] mb-4 tracking-tight">
-              A journey that began 4 years ago...
+              A secret in our Dadi&apos;s kitchen
             </h1>
             <p className="font-sans font-normal text-lg leading-relaxed text-[#16181A] tracking-tight">
               We started with a simple belief — that drinks should taste like home.
