@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function StorySection() {
     return (
-        <section id="about" className="bg-white font-sans tracking-tight">
+        <section id="about" className="bg-[#FEF5E4] font-sans tracking-tight">
             <div className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 py-14 md:py-20">
                 {/* Top: Grandma illustration and copy */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
