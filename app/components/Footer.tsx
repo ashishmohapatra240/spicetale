@@ -17,23 +17,19 @@ export default function Footer() {
 
                         <div className="space-y-6">
                             <div>
-                                <h4 className="text-lg font-semibold">Corporate Address</h4>
+                                <h4 className="text-lg font-semibold">Office Address</h4>
                                 <p className="mt-2 max-w-md">
-                                    2nd Floor, Harmony Building / Behind RBL lane, Opp Mauli Petrol Pump,
-                                    Baner Road, Pune-411045
+                                    Bombay Market Apts,G-16,Next to A/c Market, Tardeo,Mumbai - 400034
                                 </p>
                             </div>
 
                             <div>
                                 <h4 className="text-lg font-semibold">Contact :</h4>
-                                <p className="mt-2">
+                                <p>
                                     <Link href="tel:+919975056579" className="">+91 99750 56579</Link>
                                 </p>
-                                <p className="mt-2">
-                                    <Link href="mailto:letstalk@mixtalebeverages.com" className="hover:text-white">letstalk@mixtalebeverages.com</Link>
-                                </p>
 
-                                <p className="text-sm">© mixtalebeverages 2025, India. All rights reserved.</p>
+                                <p className="text-sm mt-4">© spicetalebeverages 2025, India. All rights reserved.</p>
 
                             </div>
                         </div>
@@ -42,16 +38,15 @@ export default function Footer() {
                     <div className="flex flex-col justify-between">
                         <div className="space-y-6">
                             <div>
-                                <h4 className="text-lg font-semibold">Manufacturing Unit</h4>
+                                <h4 className="text-lg font-semibold">Factory Address</h4>
                                 <p className="mt-2 max-w-md">
-                                    2nd Floor, Harmony Building / Behind RBL lane, Opp Mauli Petrol Pump,
-                                    Baner Road, Pune-411045
+                                    E-80, MIDC, Additional Patal Ganga,Raigad, Maharashtra - 410220
                                 </p>
                             </div>
 
                             <div>
                                 <h4 className="text-lg font-semibold">Email :</h4>
-                                <p className="mt-2">letstalk@mixtalebeverages.com</p>
+                                <Link href="mailto:admin@spicetalebeverages.com" className="mt-2">admin@spicetalebeverages.com</Link>
                             </div>
                         </div>
 
@@ -59,7 +54,7 @@ export default function Footer() {
 
                             <div className="flex items-center gap-4">
                                 <SocialIcon href="https://www.facebook.com/Spicetalebeverage" label="Facebook" svg={(cls) => <Facebook className={cls} />} />
-                                <SocialIcon href="mailto:letstalk@mixtalebeverages.com" label="Email" svg={(cls) => <Mail className={cls} />} />
+                                <SocialIcon href="mailto:admin@spicetalebeverages.com" label="Email" svg={(cls) => <Mail className={cls} />} />
                                 <SocialIcon href="https://www.instagram.com/spicetalebeverage" label="Instagram" svg={(cls) => <Instagram className={cls} />} />
                             </div>
                         </div>

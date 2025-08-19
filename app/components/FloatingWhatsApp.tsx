@@ -4,7 +4,7 @@ import React from 'react';
 
 const FloatingWhatsApp = () => {
     const handleWhatsAppClick = () => {
-        window.open('https://wa.me/917045455899', '_blank');
+        window.open('https://wa.me/917977041040', '_blank');
     };
 
     return (
@@ -28,7 +28,7 @@ const FloatingWhatsApp = () => {
             <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></div>
 
             {/* Tooltip */}
-            <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none font-sans">
                 Chat with us on WhatsApp
                 <div className="absolute left-full top-1/2 transform -translate-y-1/2 border-l-4 border-l-gray-800 border-y-4 border-y-transparent"></div>
             </div>

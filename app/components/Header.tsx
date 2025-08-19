@@ -59,7 +59,7 @@ export default function Header() {
 
         <div className="hidden md:flex font-sans">
           <a
-            href="mailto:letstalk@mixtalebeverages.com"
+            href="mailto:admin@spicetalebeverages.com"
             className="rounded-full bg-[#3D1706] text-white px-6 py-2 text-sm font-semibold shadow-sm hover:opacity-95"
           >
             Enquire
@@ -105,7 +105,7 @@ export default function Header() {
 
             <div>
               <Link
-                href="mailto:letstalk@mixtalebeverages.com"
+                href="mailto:admin@spicetalebeverages.com"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-block rounded-full bg-[#3D1706] text-white px-6 py-3 text-base font-semibold shadow-sm hover:opacity-95 transition-opacity w-full font-sans text-center"
               >
