@@ -37,14 +37,8 @@ export default function Products() {
                             className="object-fit"
                         />
                         <div className={`absolute inset-0 rounded-2xl`}></div>
-                        <Image
-                            src={product.imgSrc}
-                            alt={product.name}
-                            width={192}
-                            height={384}
-                            className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-xl object-contain w-auto h-[300px]"
-                            priority
-                        />
+                        <Image src={product.imgSrc[selectedSizes[product.id]]} alt={product.name} fill className="object-contain" />
+
                         {/* <p className="absolute font-sans text-white text-sm sm:text-base lg:text-lg rounded-2xl bg-black px-8 sm:px-12 lg:px-16 py-1 bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2">
                             Order
                         </p> */}
@@ -66,11 +60,10 @@ export default function Products() {
                                         <button
                                             key={size}
                                             onClick={() => handleSizeChange(product.id, size)}
-                                            className={`px-4 py-1 rounded-full font-sans text-[16px] font-medium transition-colors ${
-                                                selectedSizes[product.id] === size
-                                                    ? 'bg-[#16181A] text-white'
-                                                    : 'text-[#16181A] hover:bg-gray-100'
-                                            }`}
+                                            className={`px-4 py-1 rounded-full font-sans text-[16px] font-medium transition-colors ${selectedSizes[product.id] === size
+                                                ? 'bg-[#16181A] text-white'
+                                                : 'text-[#16181A] hover:bg-gray-100'
+                                                }`}
                                         >
                                             {size} ml
                                         </button>

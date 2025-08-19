@@ -72,8 +72,8 @@ export default function PunchSection() {
                   className="absolute inset-0 pointer-events-none select-none flex items-center justify-center"
                   aria-hidden
                 >
-                  <div className="w-36 md:w-28 h-96 relative">
-                    <Image src={p.imgSrc} alt={p.name} fill className="object-contain" />
+                  <div className="w-48 md:w-56 h-96 relative">
+                    <Image src={p.imgSrc[selectedSizes[p.id]]} alt={p.name} fill className="object-contain" />
                   </div>
                 </div>
               </div>
