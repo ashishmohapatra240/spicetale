@@ -17,7 +17,7 @@ export default function Hero3D() {
     const colorSchemes = [
         'from-[#3D1706] to-[#853B1B]', // Original brown
         'from-[#E65100] to-[#FF9800]',   // Orange for hero-2
-        'from-[#1B5E20] to-[#4CAF50]' // Green for hero-3
+        'from-[#1B5E20] to-[#D2E91D]' // Green for hero-3
     ]
 
     useEffect(() => {
