@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname()
   const isProductsPage = pathname?.startsWith('/products')
   const isAboutPage = pathname?.startsWith('/about-us')
-  const isLocationPage = pathname?.startsWith('/location')
+  const isHomePage = pathname === '/'
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Close mobile menu when clicking outside or on escape
@@ -35,6 +35,13 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-10 text-[16px] font-sans tracking-tight">
           <Link
+            href="/"
+            aria-current={isHomePage ? 'page' : undefined}
+            className={`transition-colors hover:opacity-80 ${isHomePage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+          >
+            Home
+          </Link>
+          <Link
             href="/products"
             aria-current={isProductsPage ? 'page' : undefined}
             className={`transition-colors hover:opacity-80 ${isProductsPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
@@ -48,18 +55,11 @@ export default function Header() {
           >
             About us
           </Link>
-          <Link
-            href="/"
-            aria-current={isLocationPage ? 'page' : undefined}
-            className={`transition-colors hover:opacity-80 ${isLocationPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
-          >
-            Location
-          </Link>
         </nav>
 
         <div className="hidden md:flex font-sans">
           <a
-            href="#enquire"
+            href="mailto:letstalk@mixtalebeverages.com"
             className="rounded-full bg-[#3D1706] text-white px-6 py-2 text-sm font-semibold shadow-sm hover:opacity-95"
           >
             Enquire
@@ -80,6 +80,13 @@ export default function Header() {
         <div className="md:hidden border-t border-neutral-200 bg-white">
           <nav className="container max-w-7xl mx-auto px-4 py-4 space-y-4">
             <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isHomePage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
+            >
+              Home
+            </Link>
+            <Link
               href="/products"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isProductsPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
@@ -95,16 +102,10 @@ export default function Header() {
               About us
             </Link>
             <hr className='border-neutral-200' />
-            <Link
-              href="/"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className={`block py-2 text-lg font-sans tracking-tight transition-colors hover:opacity-80 ${isLocationPage ? 'font-semibold text-neutral-900' : 'font-medium text-neutral-800'}`}
-            >
-              Location
-            </Link>
+
             <div>
               <Link
-                href="#enquire"
+                href="mailto:letstalk@mixtalebeverages.com"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-block rounded-full bg-[#3D1706] text-white px-6 py-3 text-base font-semibold shadow-sm hover:opacity-95 transition-opacity w-full font-sans text-center"
               >

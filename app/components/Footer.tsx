@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import { Twitter, Mail, Instagram } from 'lucide-react'
+import { Facebook, Mail, Instagram } from 'lucide-react'
 
 export default function Footer() {
     return (
@@ -58,9 +58,9 @@ export default function Footer() {
                         <div className="mt-10 flex items-center justify-between gap-6">
 
                             <div className="flex items-center gap-4">
-                                <SocialIcon href="https://twitter.com/" label="Twitter" svg={(cls) => <Twitter className={cls} />} />
+                                <SocialIcon href="https://www.facebook.com/Spicetalebeverage" label="Facebook" svg={(cls) => <Facebook className={cls} />} />
                                 <SocialIcon href="mailto:letstalk@mixtalebeverages.com" label="Email" svg={(cls) => <Mail className={cls} />} />
-                                <SocialIcon href="https://instagram.com/" label="Instagram" svg={(cls) => <Instagram className={cls} />} />
+                                <SocialIcon href="https://www.instagram.com/spicetalebeverage" label="Instagram" svg={(cls) => <Instagram className={cls} />} />
                             </div>
                         </div>
                     </div>
