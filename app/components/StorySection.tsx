@@ -21,8 +21,7 @@ export default function StorySection() {
 
                     <div className="text-[#3D1706] max-w-xl md:ml-auto">
                         <h2 className="text-[32px] md:text-[6vw] lg:text-[64px] leading-[1.05] uppercase text-[#3D1706] tracking-tight font-display mb-4">
-                            Sip. Smile. Burp.<br />
-                            Bottles to Burp.
+                            Sip. Smile. Burp.
                         </h2>
                         <p className="text-base md:text-lg leading-relaxed">
                             At Spicetale, every sip is alive with crisp carbonation and the warmth of traditional Indian spices.
