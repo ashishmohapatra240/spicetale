@@ -43,12 +43,24 @@ export default function Hero3D() {
                             SPICETALE
                         </motion.h1>
                         <div className="relative w-full flex justify-between">
-                            <h3 className="text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase text-[#3D1706] font-bold font-display text-left">
+                            <motion.h3
+                                className={`text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase font-bold font-display text-left bg-gradient-to-b ${colorSchemes[currentImageIndex]} bg-clip-text text-transparent`}
+                                key={`left-${currentImageIndex}`}
+                                initial={{ opacity: 0.7 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
                                 Authentic Indian
-                            </h3>
-                            <h3 className="text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase text-[#3D1706] font-bold font-display text-right">
+                            </motion.h3>
+                            <motion.h3
+                                className={`text-[20px] md:text-[4.5vw] lg:text-[32px] leading-[1.1] uppercase font-bold font-display text-right bg-gradient-to-b ${colorSchemes[currentImageIndex]} bg-clip-text text-transparent`}
+                                key={`right-${currentImageIndex}`}
+                                initial={{ opacity: 0.7 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            >
                                 Masala Fizz
-                            </h3>
+                            </motion.h3>
                         </div>
                     </div>
                 </div>
