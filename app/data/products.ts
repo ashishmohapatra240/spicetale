@@ -54,17 +54,17 @@ export const products: Product[] = [
     },
     {
         id: 'nimbu-masala-2',
-        name: 'Masala Shikanji Soda',
-        subtitle: 'Tangy, spiced lemonade meets sparkling refreshment in every sip',
+        name: 'Masala Blueberry Soda',
+        subtitle: 'Sweet, tart blueberries meet a sparkling spice twist.',
         pricing: { 200: 10, 300: 20 },
-        sizesMl: [200, 300],
+        sizesMl: [200],
         backgroundColor: '#4D54FF',
         imgSrc: {
-            200: '/images/products/nimbu-masala-small.webp',
+            200: '/images/products/masalablueberry.png',
             300: '/images/products/nimbu-masala.webp'
         },
         backgroundImageSrc: '/images/products/blue.png',
-        description: "Fresh lemon zest, over five aromatic spices, and crisp carbonation create an irresistibly tangy, spicy, and refreshing Indian summer drink.",
+        description: "Lush blueberries mingle with a hint of warming spices and crisp carbonation, creating a vibrant, tangy-sweet soda that’s both refreshing and intriguingly spiced — a fusion of orchard fruit and Indian zest.",
     },
 ]
 
